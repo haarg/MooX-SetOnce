@@ -10,10 +10,12 @@ WriteMakefile(
 
   PREREQ_PM => {
     'Moo' => 1.000007,
+    'Class::Method::Modifiers' => 1.05,
     'strictures' => 1,
   },
   'BUILD_REQUIRES' => {
     'Test::More' => 0.94,
+    'Test::Fatal' => 0,
   },
 
   META_MERGE => {
