@@ -30,6 +30,14 @@ sub import {
     }
     my $predicate = $opts{predicate} ||= '_has_' . $attr;
 
+    $opts{traits} ||= [];
+    push @{$opts{traits}}, 'SetOnce';
+
+    $opts{handle_moose} ||= [];
+    push @{$opts{handle_moose}}, sub {
+      require MooseX::SetOnce;
+    };
+
     $orig->($attr, %opts);
 
     $target->can('before')->($writer, sub {
@@ -68,6 +76,9 @@ the attribute has a value, it will throw an exception.
 
 If the attribute has a clearer, you may clear the attribute and set
 it again.
+
+If a Moose module extends or composes a module using MooX::SetOnce,
+MooseX::SetOnce will be loaded to provide the Moose implementation.
 
 =head1 SEE ALSO
 

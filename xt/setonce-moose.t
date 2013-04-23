@@ -16,7 +16,16 @@ BEGIN { do(dirname(__FILE__).'/../t/setonce.t'); die $@ if $@ }
   with 'MooSetOnceRole';
 }
 
+{
+  package MooseInhSetOnceOverride;
+  use Moose;
+  extends 'MooSetOnce';
+  has '+two' => (clearer => 'clear_two');
+}
+
 test_object(MooseInhSetOnce->new);
 test_object(MooseWithSetOnce->new);
+test_object(MooseInhSetOnceOverride->new);
+
 done_testing;
 
