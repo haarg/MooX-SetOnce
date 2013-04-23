@@ -36,8 +36,11 @@ use Test::Fatal;
   with 'MooSetOnceRole';
 }
 
-test_object(MooSetOnce->new);
-test_object(MooSetOnceFromRole->new);
+if (!caller) {
+  test_object(MooSetOnce->new);
+  test_object(MooSetOnceFromRole->new);
+  done_testing;
+}
 
 sub test_object {
   my $o = shift;
@@ -92,5 +95,3 @@ sub test_object {
     $o->seven(1);
   }, undef, "set after clear allowed";
 }
-
-done_testing;

@@ -15,7 +15,7 @@ sub import {
     my $orig = shift;
     my ($attr, %opts) = @_;
     return $orig->($attr, %opts)
-      unless $opts{once};
+      unless delete $opts{once};
 
     my $is = $opts{is};
     my $writer = $opts{writer};
