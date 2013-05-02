@@ -30,12 +30,12 @@ sub import {
     }
     my $predicate = $opts{predicate} ||= '_has_' . $attr;
 
-    $opts{traits} ||= [];
-    push @{$opts{traits}}, 'SetOnce';
-
     $opts{moosify} ||= [];
     push @{$opts{moosify}}, sub {
+      my ($spec) = @_;
       require MooseX::SetOnce;
+      $spec->{traits} ||= [];
+      push @{$spec->{traits}}, 'SetOnce';
     };
 
     $orig->($attr, %opts);
