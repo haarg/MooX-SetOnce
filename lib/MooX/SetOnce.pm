@@ -33,8 +33,8 @@ sub import {
     $opts{traits} ||= [];
     push @{$opts{traits}}, 'SetOnce';
 
-    $opts{handle_moose} ||= [];
-    push @{$opts{handle_moose}}, sub {
+    $opts{moosify} ||= [];
+    push @{$opts{moosify}}, sub {
       require MooseX::SetOnce;
     };
 
