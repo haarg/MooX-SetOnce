@@ -9,7 +9,7 @@ WriteMakefile(
   VERSION_FROM => 'lib/MooX/SetOnce.pm',
 
   PREREQ_PM => {
-    'Moo' => 1.000007,
+    'Moo' => 1.002000,
     'Class::Method::Modifiers' => 1.05,
     'strictures' => 1,
   },
