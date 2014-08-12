@@ -33,7 +33,8 @@ sub import {
     $opts{moosify} ||= [];
     push @{$opts{moosify}}, sub {
       my ($spec) = @_;
-      require MooseX::SetOnce;
+      require # hide from CPANTS
+        MooseX::SetOnce;
       $spec->{traits} ||= [];
       push @{$spec->{traits}}, 'SetOnce';
     };
