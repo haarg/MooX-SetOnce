@@ -1,5 +1,7 @@
 Revision history for MooX-SetOnce
 
+  - fix typo in pod (thanks mattp)
+
 0.001002 - 2014-08-21
   - provide license correctly in metadata
 
