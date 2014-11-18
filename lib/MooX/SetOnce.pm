@@ -56,7 +56,7 @@ __END__
 
 =head1 NAME
 
-MooX::SetOnce - write-once attributes for Moose
+MooX::SetOnce - write-once attributes for Moo
 
 =head1 SYNOPSIS
 
